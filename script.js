@@ -25,29 +25,29 @@ function validateForm() {
 
 // Table code
 function searchFunction() {
-  // Get the input field
-  var input = document.getElementById("search");
-  // Get the table
-  var table = document.getElementById("dataTable");
-  // Get the rows of the table
-  var rows = table.getElementsByTagName("tr");
-  // Loop through all rows
-  for (var i = 0; i < rows.length; i++) {
-      // Get the cells of the current row
-      var cells = rows[i].getElementsByTagName("td");
-      // Loop through all cells
-      for (var j = 0; j < cells.length; j++) {
-          // If the cell's text matches the input
-          if (cells[j].innerHTML.toUpperCase().indexOf(input.value.toUpperCase()) > -1) {
-              // Show the row
-              rows[i].style.display = "";
-              break;
-          } else {
-              // Hide the row
-              rows[i].style.display = "none";
-          }
-      }
-  }
+    // Get the input field
+    var input = document.getElementById("search");
+    // Get the table
+    var table = document.getElementById("dataTable");
+    // Get the rows of the table
+    var rows = table.getElementsByTagName("tr");
+    // Loop through all rows
+    for (var i = 0; i < rows.length; i++) {
+        // Get the cells of the current row
+        var cells = rows[i].getElementsByTagName("td");
+        // Loop through all cells
+        for (var j = 0; j < cells.length; j++) {
+            // If the cell's text matches the input
+            if (cells[j].innerHTML.toUpperCase().indexOf(input.value.toUpperCase()) > -1) {
+                // Show the row
+                rows[i].style.display = "";
+                break;
+            } else {
+                // Hide the row
+                rows[i].style.display = "none";
+            }
+        }
+    }
 }
 
 
@@ -64,13 +64,13 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
+btn.onclick = function () {
+    modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+span.onclick = function () {
+    modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -87,13 +87,13 @@ span.onclick = function() {
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
+btn.onclick = function () {
+    modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+span.onclick = function () {
+    modal.style.display = "none";
 }
 
 
@@ -109,14 +109,14 @@ const registerBtn = document.getElementById("register-btn");
 
 // Handle the click event for the login button
 loginBtn.addEventListener("click", () => {
-  loginForm.style.display = "block";
-  registerForm.style.display = "none";
+    loginForm.style.display = "block";
+    registerForm.style.display = "none";
 });
 
 // Handle the click event for the register button
 registerBtn.addEventListener("click", () => {
-  loginForm.style.display = "none";
-  registerForm.style.display = "block";
+    loginForm.style.display = "none";
+    registerForm.style.display = "block";
 });
 
 
@@ -125,74 +125,106 @@ loginForm.addEventListener("submit", e => {
     e.preventDefault();
     const email = loginForm.email.value;
     const password = loginForm.password.value;
-  
+
     // Validate the inputs
     if (!email || !password) {
-      alert("Please fill in the email and password fields.");
-      return;
+        alert("Please fill in the email and password fields.");
+        return;
     }
-  
+
     // Send a request to the server to authenticate the user
     fetch("/login", {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          // Save the user's token in local storage
-          localStorage.setItem("token", data.token);
-          // Redirect the user to the dashboard
-          window.location.href = "/dashboard";
-        } else {
-          alert("Invalid email or password. Please try again.");
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+        headers: {
+            "Content-Type": "application/json"
         }
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  });
-  
-  // Handle the submit event for the register form
-  registerForm.addEventListener("submit", e => {
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                // Save the user's token in local storage
+                localStorage.setItem("token", data.token);
+                // Redirect the user to the dashboard
+                window.location.href = "/dashboard";
+            } else {
+                alert("Invalid email or password. Please try again.");
+            }
+        })
+        .catch(err => {
+            console.error(err);
+        });
+});
+
+// Handle the submit event for the register form
+registerForm.addEventListener("submit", e => {
     e.preventDefault();
     const email = registerForm.email.value;
     const password = registerForm.password.value;
     const passwordConfirm = registerForm["password-confirm"].value;
-  
+
     // Validate the inputs
     if (!email || !password || !passwordConfirm) {
-      alert("Please fill in all the fields.");
-      return;
+        alert("Please fill in all the fields.");
+        return;
     }
-    if(password !== passwordConfirm){
-      alert("Password and Confirm Password do not match.")
-      return;
+    if (password !== passwordConfirm) {
+        alert("Password and Confirm Password do not match.")
+        return;
     }
     // Send a request to the server to register the user
     fetch("/register", {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          // Save the user's token in local storage
-          localStorage.setItem("token", data.token);
-          // Redirect the user to the dashboard
-          window.location.href = "/dashboard";
-        } else {
-          alert("Unable to register the user. Please try again.");
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+        headers: {
+            "Content-Type": "application/json"
         }
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  });
-  
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                // Save the user's token in local storage
+                localStorage.setItem("token", data.token);
+                // Redirect the user to the dashboard
+                window.location.href = "/dashboard";
+            } else {
+                alert("Unable to register the user. Please try again.");
+            }
+        })
+        .catch(err => {
+            console.error(err);
+        });
+});
+
+
+
+
+
+/* Multi step */
+var currentStep = 1;
+
+function nextStep(step) {
+    document.getElementById("step" + currentStep).style.display = "none";
+    currentStep = step;
+    document.getElementById("step" + currentStep).style.display = "block";
+}
+
+function prevStep(step) {
+    document.getElementById("step" + currentStep).style.display = "none";
+    currentStep = step;
+    document.getElementById("step" + currentStep).style.display = "block";
+}
+
+document.getElementById("step1").style.display = "block";
+
+
+/* Second multistep */
+function showStep2() {
+    document.getElementById("step1").style.display = "none";
+    document.getElementById("step2").style.display = "block";
+}
+
+function showStep3() {
+    document.getElementById("step2").style.display = "none";
+    document.getElementById("step3").style.display = "block";
+}

@@ -32,30 +32,42 @@
     <br>
     <div class="table-container">
         <input type="text" id="search" onkeyup="searchFunction()" placeholder="Search for names..">
-    <table class="table-center" id="dataTable">
-        <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>City</th>
-            <th>Country</th>
-        </tr>
-        <tr>
-            <td>John Doe</td>
-            <td>35</td>
-            <td>Male</td>
-            <td>1234 Main St</td>
-            <td>555-555-5555</td>
-            <td>johndoe@email.com</td>
-            <td>New York</td>
-            <td>USA</td>
-        </tr>
-        <!-- Add more rows as needed -->
-    </table>
+        <table class="table-center" id="dataTable">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>City</th>
+                <th>Country</th>
+            </tr>
+            <tr>
+                <td>John Doe</td>
+                <td>35</td>
+                <td>Male</td>
+                <td>1234 Main St</td>
+                <td>555-555-5555</td>
+                <td>johndoe@email.com</td>
+                <td>New York</td>
+                <td>USA</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </table>
     </div>
+
+
+    <!-- Modal -->
+    <button id="myBtn">Open Modal</button>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Modal Content</p>
+        </div>
+    </div>
+
+    <!-- End Modal -->
     <script src="script.js"></script>
 </body>
 

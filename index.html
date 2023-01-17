@@ -26,8 +26,36 @@
         <input type="tel" id="phone" name="phone" required pattern="^(?:(?:\+|0{0,2})27|0)[1-9]\d{8}$">
         <br><br>
         <input type="submit" value="Submit">
-        <br>
+        <br><br>
     </form>
+
+    <br>
+    <div class="table-container">
+        <input type="text" id="search" onkeyup="searchFunction()" placeholder="Search for names..">
+    <table class="table-center" id="dataTable">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Country</th>
+        </tr>
+        <tr>
+            <td>John Doe</td>
+            <td>35</td>
+            <td>Male</td>
+            <td>1234 Main St</td>
+            <td>555-555-5555</td>
+            <td>johndoe@email.com</td>
+            <td>New York</td>
+            <td>USA</td>
+        </tr>
+        <!-- Add more rows as needed -->
+    </table>
+    </div>
     <script src="script.js"></script>
 </body>
 

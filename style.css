@@ -235,6 +235,7 @@ button[type="submit"]:hover {
 .card:hover #card-image {
     transform: scale(1.1);
 }
+
 .overlay {
     position: fixed;
     top: 0;
@@ -272,15 +273,15 @@ button[type="submit"]:hover {
 #card-container {
     width: 1000px;
     overflow: hidden;
-  }
-  
-  .card {
+}
+
+.card {
     width: 300px;
     float: left;
-  }
-  
+}
 
-  .overlay img {
+
+.overlay img {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -294,73 +295,180 @@ button[type="submit"]:hover {
 /* Star rating */
 #rating {
     font-size: 0;
-  }
-  
-  #rating i {
+}
+
+#rating i {
     font-size: 18px;
     color: #ccc;
     cursor: pointer;
-  }
-  
-  #rating i.selected {
-    color: #ffc107;
-  }
-  
+}
 
-  /* Navigation bar */
-  header {
+#rating i.selected {
+    color: #ffc107;
+}
+
+
+/* Navigation bar */
+header {
     position: relative;
     background-color: #333;
     color: #fff;
-  }
-  
-  nav {
+}
+
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  ul {
+}
+
+ul {
     display: flex;
     list-style: none;
-  }
-  
-  li {
+}
+
+li {
     margin-right: 1em;
-  }
+}
 
 
-  li a{
+li a {
     color: #fff;
     text-decoration: none;
-  }
-  
-  .hamburger {
+}
+
+.hamburger {
     display: none;
     cursor: pointer;
-  }
-  
-  .hamburger .line {
+}
+
+.hamburger .line {
     width: 2.5em;
     height: 0.2em;
     margin: 0.5em;
     background-color: #fff;
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     ul {
-      display: none;
+        display: none;
     }
+
     .hamburger {
-      display: block;
+        display: block;
     }
-  }
-  
-  .nav-active {
+}
+
+.nav-active {
     display: flex !important;
-  }
+}
 
-  
 
-  /* Second menu */
-  
+
+/* Second menu */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background-color: #000;
+}
+
+.nav-linkss {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nav-linkss li {
+    margin: 0 1rem;
+}
+
+.nav-linkss li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.hamburgerss {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburgerss .line {
+    width: 2rem;
+    height: 0.2rem;
+    margin: 0.5rem 0;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-linkss {
+        display: none;
+    }
+
+    .hamburgerss {
+        display: block;
+    }
+}
+
+/* Add open/close class */
+
+.hamburger.open .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+
+/* navbar pure css */
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.line {
+    width: 30px;
+    height: 3px;
+    background-color: red;
+    margin: 6px 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+}
+
+@media only screen and (max-width: 600px) {
+    .hamburger {
+        display: block;
+    }
+
+    ul {
+        display: none;
+    }
+}
+
+
+/* Dropdown menu */

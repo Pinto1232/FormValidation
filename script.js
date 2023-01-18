@@ -323,3 +323,15 @@ hamburger.addEventListener("click", () => {
 
 
 /* Second navbar */
+const hamburgerss = document.querySelector('.hamburgerss');
+const navLinkss = document.querySelector('.nav-linkss');
+
+hamburger.addEventListener('click', () => {
+    navLinkss.classList.toggle('open');
+    hamburgerss.classList.toggle('open');
+    navLinkss.style.display = navLinkss.style.display === 'flex' ? 'none' : 'flex';
+});
+
+
+
+/* Dropdown menu */

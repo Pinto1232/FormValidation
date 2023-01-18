@@ -306,3 +306,61 @@ button[type="submit"]:hover {
     color: #ffc107;
   }
   
+
+  /* Navigation bar */
+  header {
+    position: relative;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  li {
+    margin-right: 1em;
+  }
+
+
+  li a{
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .hamburger {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .hamburger .line {
+    width: 2.5em;
+    height: 0.2em;
+    margin: 0.5em;
+    background-color: #fff;
+  }
+  
+  @media (max-width: 768px) {
+    ul {
+      display: none;
+    }
+    .hamburger {
+      display: block;
+    }
+  }
+  
+  .nav-active {
+    display: flex !important;
+  }
+
+  
+
+  /* Second menu */
+  

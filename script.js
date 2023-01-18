@@ -309,3 +309,17 @@ for (let i = 0; i < stars.length; i++) {
         }
     });
 }
+
+
+
+
+/* Navigation bar */
+const hamburger = document.querySelector("#hamburger-icon");
+const navLinks = document.querySelector("ul");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("nav-active");
+});
+
+
+/* Second navbar */

@@ -198,8 +198,6 @@ registerForm.addEventListener("submit", e => {
 
 
 
-
-
 /* Multi step */
 var currentStep = 1;
 
@@ -228,3 +226,57 @@ function showStep3() {
     document.getElementById("step2").style.display = "none";
     document.getElementById("step3").style.display = "block";
 }
+
+
+/* Third multistep form */
+
+
+/* Card Image */
+var cardImage = document.getElementById("card-image");
+var overlay = document.getElementById("overlay");
+var overlayImage = document.getElementById("overlay-image");
+
+cardImage.onclick = function() {
+  overlay.style.display = "block";
+  overlayImage.src = this.src;
+}
+overlay.onclick = function() {
+  overlay.style.display = "none";
+}
+
+
+/* Card two */
+var currentSlide = 0;
+var totalSlides = document.getElementsByClassName("card").length;
+var cardContainer = document.getElementById("card-container");
+
+setInterval(function() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  cardContainer.style.marginLeft = "-" + (currentSlide * 300) + "px";
+}, 3000);
+
+
+
+
+var cardContainer = document.getElementById("card-container");
+
+cardContainer.addEventListener("click", function(e) {
+  if (e.target.tagName === "IMG") {
+    var overlay = document.createElement("div");
+    overlay.classList.add("overlay");
+    var overlayImage = document.createElement("img");
+    overlayImage.src = e.target.src;
+    overlay.appendChild(overlayImage);
+    overlay.style.display = "block";
+    document.body.appendChild(overlay);
+  }
+
+  /* Allow the image overlay to disapear when clicked outside */
+  window.onclick = function(event) {
+    if (event.target == overlay) {
+      overlay.style.display = "none";
+    }
+  }
+});
+
+

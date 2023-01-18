@@ -288,3 +288,21 @@ button[type="submit"]:hover {
     max-width: 90%;
     max-height: 90%;
 }
+
+
+
+/* Star rating */
+#rating {
+    font-size: 0;
+  }
+  
+  #rating i {
+    font-size: 18px;
+    color: #ccc;
+    cursor: pointer;
+  }
+  
+  #rating i.selected {
+    color: #ffc107;
+  }
+  

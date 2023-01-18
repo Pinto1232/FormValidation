@@ -236,12 +236,12 @@ var cardImage = document.getElementById("card-image");
 var overlay = document.getElementById("overlay");
 var overlayImage = document.getElementById("overlay-image");
 
-cardImage.onclick = function() {
-  overlay.style.display = "block";
-  overlayImage.src = this.src;
+cardImage.onclick = function () {
+    overlay.style.display = "block";
+    overlayImage.src = this.src;
 }
-overlay.onclick = function() {
-  overlay.style.display = "none";
+overlay.onclick = function () {
+    overlay.style.display = "none";
 }
 
 
@@ -250,9 +250,9 @@ var currentSlide = 0;
 var totalSlides = document.getElementsByClassName("card").length;
 var cardContainer = document.getElementById("card-container");
 
-setInterval(function() {
-  currentSlide = (currentSlide + 1) % totalSlides;
-  cardContainer.style.marginLeft = "-" + (currentSlide * 300) + "px";
+setInterval(function () {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    cardContainer.style.marginLeft = "-" + (currentSlide * 300) + "px";
 }, 3000);
 
 
@@ -260,23 +260,52 @@ setInterval(function() {
 
 var cardContainer = document.getElementById("card-container");
 
-cardContainer.addEventListener("click", function(e) {
-  if (e.target.tagName === "IMG") {
-    var overlay = document.createElement("div");
-    overlay.classList.add("overlay");
-    var overlayImage = document.createElement("img");
-    overlayImage.src = e.target.src;
-    overlay.appendChild(overlayImage);
-    overlay.style.display = "block";
-    document.body.appendChild(overlay);
-  }
-
-  /* Allow the image overlay to disapear when clicked outside */
-  window.onclick = function(event) {
-    if (event.target == overlay) {
-      overlay.style.display = "none";
+cardContainer.addEventListener("click", function (e) {
+    if (e.target.tagName === "IMG") {
+        var overlay = document.createElement("div");
+        overlay.classList.add("overlay");
+        var overlayImage = document.createElement("img");
+        overlayImage.src = e.target.src;
+        overlay.appendChild(overlayImage);
+        overlay.style.display = "block";
+        document.body.appendChild(overlay);
     }
-  }
+
+    /* Allow the image overlay to disapear when clicked outside */
+    window.onclick = function (event) {
+        if (event.target == overlay) {
+            overlay.style.display = "none";
+        }
+    }
 });
 
 
+
+
+
+/* Star rating */
+const rating = document.getElementById('rating');
+const stars = rating.getElementsByTagName('i');
+
+for (let i = 0; i < stars.length; i++) {
+    stars[i].addEventListener('mouseover', function () {
+        for (let j = 0; j < stars.length; j++) {
+            stars[j].classList.remove('selected');
+        }
+        for (let j = 0; j <= i; j++) {
+            stars[j].classList.add('selected');
+        }
+    });
+
+    stars[i].addEventListener('mouseout', function () {
+        for (let j = 0; j < stars.length; j++) {
+            stars[j].classList.remove('selected');
+        }
+    });
+
+    stars[i].addEventListener('click', function () {
+        for (let j = 0; j <= i; j++) {
+            stars[j].classList.add('selected');
+        }
+    });
+}

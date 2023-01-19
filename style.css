@@ -510,3 +510,14 @@ li {
     font-size: 16px;
     line-height: 1.5;
   }
+
+
+
+  /* Multi step form 2 */
+  .form-step {
+    display: none;
+  }
+
+
+  /* Four columns */
+  

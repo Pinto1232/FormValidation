@@ -335,3 +335,51 @@ hamburger.addEventListener('click', () => {
 
 
 /* Dropdown menu */
+document.addEventListener('DOMContentLoaded', function() {
+  var current_step = 1;
+  var max_step = 3;
+
+  document.getElementById("next").addEventListener("click", function() {
+    if (current_step < max_step) {
+      current_step++;
+      // code to show the next step of the form
+    }
+  });
+
+  document.getElementById("previous").addEventListener("click", function() {
+    if (current_step > 1) {
+      current_step--;
+      // code to show the previous step of the form
+    }
+  });
+});
+
+
+
+
+/* Multi Step two form */
+
+
+$(document).ready(function() {
+    // Show first step
+    $("#step1").show();
+    
+    // Next step
+    $(".next-step").click(function(e) {
+      e.preventDefault();
+      var currentStep = $(this).closest(".form-step");
+      var nextStep = currentStep.next();
+      currentStep.hide();
+      nextStep.show();
+    });
+    
+    // Previous step
+    $(".prev-step").click(function(e) {
+      e.preventDefault();
+      var currentStep = $(this).closest(".form-step");
+      var prevStep = currentStep.prev();
+      currentStep.hide();
+      prevStep.show();
+    });
+  });
+  

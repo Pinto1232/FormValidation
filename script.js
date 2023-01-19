@@ -382,4 +382,8 @@ $(document).ready(function() {
       prevStep.show();
     });
   });
+
+  
+
+  /* 4 card carousel */
   
